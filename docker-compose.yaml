@@ -1,0 +1,14 @@
+services:
+  streamnative:
+    image: streamnative:latest
+    volumes:
+      - ./pulsar-oauth-key.json:/app/pulsar-oauth-key.json
+    env_file: .env
+    environment:
+      PULSAR_OAUTH_KEY_PATH: /app/pulsar-oauth-key.json
+    networks:
+      - sn-network
+
+networks:
+  sn-network:
+    name: sn-network
